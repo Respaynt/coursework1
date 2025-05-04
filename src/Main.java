@@ -28,7 +28,7 @@ public class Main {
         System.out.println("Сумма зп сотрудников: " + calculeteSumOfSalarries());
         System.out.println("Cотрудник с мин зп: " + findEmployeeWithMinSalaru());
         System.out.println("Сотрудник с макс зп: " + findEmployeeWithMaxSalaru());
-        System.out.println("Средняя зп " + calculeteAveregOfSalarries());
+        System.out.println("Средняя зп " + calculateAverageOfSalaries());
         printFullName();
 
     }
@@ -42,10 +42,13 @@ public class Main {
     private static int calculeteSumOfSalarries() {
         int sum = 0;
         for (Employee employee : EMPLOYEES) {
-            sum += employee.getSalary();
+            if (sum == 0) {
+                sum += employee.getSalary();
+            }
         }
         return sum;
     }
+
 
     private static Employee findEmployeeWithMinSalaru() {
         Employee employeeWinMinSalaru = null;
@@ -67,11 +70,18 @@ public class Main {
         return employeeWinMaxSalaru;
     }
 
-    private static double calculeteAveregOfSalarries() {
-        return (double) calculeteSumOfSalarries() / EMPLOYEES.length;
+    private static double calculateAverageOfSalaries() {
+        double totalSalary = 0;
+        for (Employee employee : EMPLOYEES) {
+            totalSalary += employee.getSalary();
+        }
+        return totalSalary / EMPLOYEES.length;
     }
 
-    private static void printFullName() {
+
+
+
+        private static void printFullName() {
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee.getFollName());
         }
