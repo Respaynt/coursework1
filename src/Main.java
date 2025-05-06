@@ -86,7 +86,7 @@ public class Main {
             if (employee != null && employee.getFollName() != null) {
                 System.out.println(employee.getFollName());
             } else {
-                System.out.println("Информация о сотрудники отсутствует");
+                System.out.println("Информация о сотруднике отсутствует");
             }
         }
     }
