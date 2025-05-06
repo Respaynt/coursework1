@@ -1,5 +1,3 @@
-import jdk.nio.mapmode.ExtendedMapMode;
-
 import java.util.Random;
 
 public class Main {
@@ -42,7 +40,7 @@ public class Main {
     private static int calculeteSumOfSalarries() {
         int sum = 0;
         for (Employee employee : EMPLOYEES) {
-            if (sum == 0) {
+            if (employee != null && sum == 0) {
                 sum += employee.getSalary();
             }
         }
@@ -72,18 +70,24 @@ public class Main {
 
     private static double calculateAverageOfSalaries() {
         double totalSalary = 0;
+        int count = 0;
         for (Employee employee : EMPLOYEES) {
-            totalSalary += employee.getSalary();
+            if (employee != null) {
+                totalSalary += employee.getSalary();
+                count++;
+            }
         }
-        return totalSalary / EMPLOYEES.length;
+        return count == 0 ? 0 : totalSalary / count;
     }
 
 
-
-
-        private static void printFullName() {
+    private static void printFullName() {
         for (Employee employee : EMPLOYEES) {
-            System.out.println(employee.getFollName());
+            if (employee != null && employee.getFollName() != null) {
+                System.out.println(employee.getFollName());
+            } else {
+                System.out.println("Информация о сотрудники отсутствует");
+            }
         }
     }
 }
