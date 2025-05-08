@@ -40,7 +40,7 @@ public class Main {
     private static int calculeteSumOfSalarries() {
         int sum = 0;
         for (Employee employee : EMPLOYEES) {
-            if (employee != null && sum == 0) {
+            if (employee != null) {
                 sum += employee.getSalary();
             }
         }
